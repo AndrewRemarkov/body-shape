@@ -1,0 +1,13 @@
+.title {
+  font-family: var(--font-accent);
+  font-size: 6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-accent);
+}
+
+@media (max-width: 48.0625rem) {
+  .title {
+    font-size: 3.5rem;
+  }
+}

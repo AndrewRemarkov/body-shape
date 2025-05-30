@@ -1,0 +1,9 @@
+:root {
+  --text-light: #fafaf5;
+  --text-accent: #ffd479;
+
+  --background-color: #1f2a32;
+
+  --font-base: 'Roboto', sans-serif;
+  --font-accent: 'Bebas Neue', sans-serif;
+}

@@ -1,0 +1,44 @@
+html {
+  font-family: var(--font-base);
+  font-weight: 300;
+  color: var(--text-light);
+  background-color: var(--background-color);
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+section {
+  padding: 9.375rem 0;
+}
+
+.section__header {
+  width: 100%;
+  max-width: 50rem;
+  margin: 0 auto;
+  margin-bottom: 3.125rem;
+  text-align: center;
+}
+
+.section__header-descr {
+  line-height: 2;
+}
+
+.container {
+  width: 100%;
+  max-width: 81.25rem;
+  margin: 0 auto;
+  padding: 0 0.9375rem;
+}
+
+@media (max-width: 48.0625rem) {
+  section {
+    padding: 4.6875rem 0;
+  }
+}
