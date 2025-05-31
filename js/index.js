@@ -1,54 +1,105 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const cards = document.querySelectorAll('.trainer-card');
-  const handlers = new WeakMap();
+window.addEventListener('DOMContentLoaded', () => {
+  const handlers = {
+    trainer: new WeakMap(),
+    program: new WeakMap(),
+  }
 
-  function addListeners(card) {
-    const inner = card.querySelector('.trainer-card__inner');
-    if (!inner) return;
+  const setupTrainerCard = (card) => {
+    const inner = card.querySelector('.trainer-card__inner')
+    if (!inner) return
 
     const onMouseMove = (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const mid = rect.width / 2;
-      const rotation = x < mid ? -15 : 15;
-      inner.style.transform = `rotateY(${rotation}deg)`;
-    };
+      const { left, width } = card.getBoundingClientRect()
+      const rotation = e.clientX - left < width / 2 ? -15 : 15
+      inner.style.transform = `rotateY(${rotation}deg)`
+    }
 
     const onMouseLeave = () => {
-      inner.style.transform = 'rotateY(0deg)';
-    };
+      inner.style.transform = 'rotateY(0deg)'
+    }
 
-    card.addEventListener('mousemove', onMouseMove);
-    card.addEventListener('mouseleave', onMouseLeave);
-    handlers.set(card, { onMouseMove, onMouseLeave });
+    card.addEventListener('mousemove', onMouseMove)
+    card.addEventListener('mouseleave', onMouseLeave)
+    handlers.trainer.set(card, { onMouseMove, onMouseLeave })
   }
 
-  function removeListeners(card) {
-    const inner = card.querySelector('.trainer-card__inner');
-    const handler = handlers.get(card);
-    if (handler) {
-      card.removeEventListener('mousemove', handler.onMouseMove);
-      card.removeEventListener('mouseleave', handler.onMouseLeave);
-      handlers.delete(card);
+  const setupProgramCard = (card) => {
+    const title = card.querySelector('.training-programs__card-title')
+    if (!title) return
+
+    const onMouseEnter = () => {
+      const shift = card.clientWidth / 2 - title.clientWidth / 2
+      title.style.transform = `translateX(${shift}px)`
     }
-    if (inner) {
-      inner.style.transform = 'rotateY(0deg)';
+
+    const onMouseLeave = () => {
+      title.style.transform = 'translateX(0)'
     }
+
+    card.addEventListener('mouseenter', onMouseEnter)
+    card.addEventListener('mouseleave', onMouseLeave)
+    handlers.program.set(card, { onMouseEnter, onMouseLeave })
   }
 
-  function updateListeners() {
-    const shouldEnable = window.innerWidth >= 1281;
-    cards.forEach((card) => {
-      const isActive = handlers.has(card);
-      if (shouldEnable && !isActive) {
-        addListeners(card);
-      } else if (!shouldEnable && isActive) {
-        removeListeners(card);
+  const clearHandlers = () => {
+    document.querySelectorAll('.trainer-card').forEach((card) => {
+      const handler = handlers.trainer.get(card)
+      if (handler) {
+        card.removeEventListener('mousemove', handler.onMouseMove)
+        card.removeEventListener('mouseleave', handler.onMouseLeave)
+        const inner = card.querySelector('.trainer-card__inner')
+        if (inner) inner.style.transform = 'rotateY(0deg)'
       }
-    });
+    })
+
+    document.querySelectorAll('.training-programs__card').forEach((card) => {
+      const handler = handlers.program.get(card)
+      if (handler) {
+        card.removeEventListener('mouseenter', handler.onMouseEnter)
+        card.removeEventListener('mouseleave', handler.onMouseLeave)
+        const title = card.querySelector('.training-programs__card-title')
+        if (title) title.style.transform = ''
+      }
+    })
+
+    handlers.trainer = new WeakMap()
+    handlers.program = new WeakMap()
   }
 
-  updateListeners(); 
-  window.addEventListener('resize', updateListeners);
-  window.addEventListener('orientationchange', updateListeners);
-});
+  const initCards = () => {
+    const isDesktop = window.innerWidth >= 1281
+
+    if (!isDesktop) {
+      clearHandlers()
+      return
+    }
+
+    document.querySelectorAll('.trainer-card').forEach((card) => {
+      if (!handlers.trainer.has(card)) {
+        setupTrainerCard(card)
+      }
+    })
+
+    document.querySelectorAll('.training-programs__card').forEach((card) => {
+      if (!handlers.program.has(card)) {
+        setupProgramCard(card)
+      }
+    })
+  }
+
+  let resizeTimer
+  const handleResize = () => {
+    clearTimeout(resizeTimer)
+    resizeTimer = setTimeout(() => {
+      initCards()
+    }, 100)
+  }
+
+  initCards()
+
+  window.addEventListener('resize', handleResize)
+  window.addEventListener('orientationchange', handleResize)
+
+  const footerYear = document.querySelector('#footer-year span')
+  if (footerYear) footerYear.textContent = new Date().getFullYear()
+})

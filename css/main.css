@@ -11,3 +11,5 @@
 /* Content */
 @import './blocks/header.css';
 @import './blocks/trainers.css';
+@import './blocks/beast.css';
+@import './blocks/training-programs.css';

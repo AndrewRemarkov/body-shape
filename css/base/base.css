@@ -4,6 +4,7 @@ html {
   color: var(--text-light);
   background-color: var(--background-color);
 }
+
 body {
   display: flex;
   flex-direction: column;

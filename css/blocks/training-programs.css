@@ -1,0 +1,52 @@
+.training-programs__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6.5625rem 1.875rem;
+}
+.training-programs__card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 16.75rem;
+  overflow: hidden;
+}
+.training-programs__card-img {
+  min-height: 15.625rem;
+  max-width: 16.75rem;
+  border-radius: 1.25rem;
+  transition: filter 0.3s ease;
+  object-fit: cover;
+}
+.training-programs__card-title {
+  display: inline-block;
+  margin-top: 1.5625rem;
+  font-family: var(--font-accent);
+  font-size: 2.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06976744186046512em;
+  color: var(--text-accent);
+  transition: transform 0.3s ease;
+}
+
+@media (min-width: 75.0625rem) {
+  .training-programs__card-img:hover {
+    filter: blur(0.175rem);
+  }
+}
+
+@media (max-width: 1200px) {
+  .training-programs__grid {
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 37.5rem) {
+  .training-programs__grid {
+    justify-content: center;
+    row-gap: 3.125rem;
+  }
+  .training-programs__card-title {
+    margin-top: 0.625rem;
+  }
+}

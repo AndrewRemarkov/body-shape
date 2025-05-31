@@ -1,0 +1,61 @@
+.beast {
+  height: 46.875rem;
+  background: image-set(
+      url('../../img/beast/beast-bg.jpg') 1x,
+      url('../../img/beast/beast-bg.jpg') 2x
+    )
+    center center / cover no-repeat;
+  clip-path: polygon(0% 10%, 100% 0%, 100% 80%, 0% 90%);
+}
+.beast__header {
+  max-width: 100%;
+  margin: 0;
+  text-align: left;
+}
+.beast__title {
+  font-size: 4.6875rem;
+  color: var(--text-light);
+}
+.beast__descr {
+  font-size: 1.375rem;
+}
+.beast__btn {
+  width: 13.375rem;
+  height: 3.25rem;
+  margin-top: 30px;
+  padding: 15px 46px;
+  font-family: var(--font-accent);
+  font-size: 1.1875rem;
+  font-weight: 700;
+  letter-spacing: 0.2631578947368421em;
+  text-transform: uppercase;
+  color: #000;
+  background-color: var(--text-accent);
+  border-radius: 0.4375rem;
+  transition: transform 0.3s ease-out;
+}
+
+@media (max-width: 768px) {
+  .beast {
+    height: auto;
+    clip-path: none;
+  }
+  .beast__title {
+    font-size: 56px;
+  }
+  .beast__descr {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .beast__btn:hover {
+    transform: scale(1.1);
+  }
+}
+
+@media (min-width: 1600px) {
+  .beast {
+    background-position: top;
+  }
+}
