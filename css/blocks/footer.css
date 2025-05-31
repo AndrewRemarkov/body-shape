@@ -1,0 +1,35 @@
+.footer {
+  padding: 70px 0;
+}
+.footer__soc1als {
+  display: flex;
+  column-gap: 50px;
+}
+.footer__soc1als-img {
+  width: 24px;
+  height: 24px;
+}
+.footer__info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  column-gap: 50px;
+}
+.footer__info a {
+  text-decoration: underline;
+  color: var(--text-loght);
+}
+.footer__address {
+  width: 270px;
+}
+.footer__contacts {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 910px) {
+  .footer__info {
+    flex-direction: column;
+    row-gap: 20px;
+  }
+}
