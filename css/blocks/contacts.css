@@ -1,0 +1,30 @@
+.contacts {
+  height: 53.75rem;
+  height: 100%;
+  background: image-set(
+      url('../../img/contacts/contact-form-bg.jpg') 1x,
+      url('../../img/contacts/contact-form-bg@2x.jpg') 2x
+    )
+    center center / cover no-repeat;
+}
+.contacts__content {
+}
+.contacts__title {
+}
+.contacts__form,
+.contacts__form-email,
+.contacts__form-name,
+.contacts__form-message {
+  display: flex;
+  flex-direction: column;
+}
+
+.contacts__form {
+  height: 100%;
+  max-height: 27.8125rem;
+  margin-top: 3.125rem;
+  row-gap: 1.875rem;
+}
+.contacts__form-btn {
+  margin: 0;
+}

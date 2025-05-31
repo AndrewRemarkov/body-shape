@@ -212,7 +212,7 @@
                 выносливость, мощь и&nbsp;непоколебимую уверенность в&nbsp;себе.
               </p>
             </div>
-            <button class="beast__btn" type="button">Записаться</button>
+            <button class="btn beast__btn" type="button">Записаться</button>
           </header>
         </div>
       </section>
@@ -306,13 +306,51 @@
           </div>
         </div>
       </section>
+      <section class="section contacts">
+        <div class="container_small">
+          <div class="contacts__content">
+            <h2 class="title contacts__title">Написать нам</h2>
+            <form class="contacts__form" action="#!">
+              <div class="contacts__form-name">
+                <label for="name">Ваше имя</label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  placeholder="Юрий"
+                  required
+                />
+              </div>
+              <div class="contacts__form-email">
+                <label for="email">E-mail</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="info@mail.com"
+                  required
+                />
+              </div>
+              <div class="contacts__form-message">
+                <label for="message">Сообщение</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  placeholder="Меня зовут Юрий, и&nbsp;я&nbsp;заинтересован в&nbsp;ваших услугах. Хотелось&nbsp;бы узнать больше о&nbsp;программах тренировок и&nbsp;возможностях записи. Заранее спасибо за&nbsp;ответ!"
+                ></textarea>
+              </div>
+              <button class="btn contacts__form-btn">Отправить</button>
+            </form>
+          </div>
+        </div>
+      </section>
     </main>
     <footer class="footer">
       <small id="footer-year"
         >© <span></span> RemarkoWeb. All Rights Reserved.</small
       >
     </footer>
-
     <script src="./js/index.js"></script>
   </body>
 </html>

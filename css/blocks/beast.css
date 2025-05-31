@@ -19,21 +19,6 @@
 .beast__descr {
   font-size: 1.375rem;
 }
-.beast__btn {
-  width: 13.375rem;
-  height: 3.25rem;
-  margin-top: 30px;
-  padding: 15px 46px;
-  font-family: var(--font-accent);
-  font-size: 1.1875rem;
-  font-weight: 700;
-  letter-spacing: 0.2631578947368421em;
-  text-transform: uppercase;
-  color: #000;
-  background-color: var(--text-accent);
-  border-radius: 0.4375rem;
-  transition: transform 0.3s ease-out;
-}
 
 @media (max-width: 768px) {
   .beast {
@@ -45,12 +30,6 @@
   }
   .beast__descr {
     font-size: 16px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .beast__btn:hover {
-    transform: scale(1.1);
   }
 }
 

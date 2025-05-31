@@ -7,9 +7,11 @@
 @import './base/vars.css';
 @import './base/base.css';
 @import './base/typography.css';
+@import './base/controls.css';
 
 /* Content */
 @import './blocks/header.css';
 @import './blocks/trainers.css';
 @import './blocks/beast.css';
 @import './blocks/training-programs.css';
+@import './blocks/contacts.css';

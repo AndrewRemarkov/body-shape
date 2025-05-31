@@ -38,6 +38,13 @@ section {
   padding: 0 0.9375rem;
 }
 
+.container_small {
+  width: 100%;
+  max-width: 38.4375rem;
+  margin: 0 auto;
+  padding: 0 0.9375rem;
+}
+
 @media (max-width: 48.0625rem) {
   section {
     padding: 4.6875rem 0;
